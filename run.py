@@ -16,10 +16,15 @@ def run(script):
     if script not in files:
         abort(404)
 
+    script_path = './run'
 
-    rc = subprocess.call(f"./{script}")
+    result = subprocess.run(script_path, env=os.environ, stdout=subprocess.PIPE)
+    out = result.stdout.decode().strip()
 
-    return f'{rc}'
+    # rc = subprocess.call(f"./{script}")
+    out = out.replace('\n',  '<br>')
+
+    return f'{out}'
 
 
 

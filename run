@@ -1,5 +1,7 @@
 #!/bin/bash
 
-echo "Script has run"
+cd ~/projects/blindcoders
+
+make redeploy
 
 exit 0
